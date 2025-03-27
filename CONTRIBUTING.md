@@ -42,7 +42,7 @@
 │   ├── <Module2>.ts       # 模块2实现
 │   └── ...
 │
-├── test/                  # 测试目录
+├── tests/                 # 测试目录
 │   └── <Module1>.Test.ts  # 模块1测试
 │   ├── <Module2>.Test.ts  # 模块2测试
 │   └── ...

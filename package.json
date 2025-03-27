@@ -27,7 +27,7 @@
   ],
   "files": [
     "dist/",
-    "test/dist/",
+    "tests/dist/",
     "types/",
     "docs/",
     "package.json",
@@ -43,10 +43,10 @@
       "import": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
     },
-    "./test": {
-      "require": "./test/dist/index.cjs",
-      "import": "./test/dist/index.mjs",
-      "types": "./test/dist/index.d.ts"
+    "./tests": {
+      "require": "./tests/dist/index.cjs",
+      "import": "./tests/dist/index.mjs",
+      "types": "./tests/dist/index.d.ts"
     }
   },
   "devDependencies": {

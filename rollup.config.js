@@ -31,19 +31,19 @@ export default [
             name: "udts",
             writeBundle() {
                 cleanup("dist/src")
-                cleanup("dist/test")
+                cleanup("dist/tests")
             }
         }],
     },
     {
-        input: "test/index.ts",
+        input: "tests/index.ts",
         output: [{
-            file: "test/dist/index.mjs",
+            file: "tests/dist/index.mjs",
             format: "es",
             sourcemap: process.argv.indexOf("--mode=production") === -1
         },
         {
-            file: "test/dist/index.cjs",
+            file: "tests/dist/index.cjs",
             format: "cjs",
             sourcemap: process.argv.indexOf("--mode=production") === -1
         }],
@@ -53,16 +53,16 @@ export default [
         ],
     },
     {
-        input: "test/dist/test/index.d.ts",
+        input: "tests/dist/tests/index.d.ts",
         output: {
-            file: "test/dist/index.d.ts",
+            file: "tests/dist/index.d.ts",
             format: "es",
         },
         plugins: [dts(), {
             name: "udts",
             writeBundle() {
-                cleanup("test/dist/src")
-                cleanup("test/dist/test")
+                cleanup("tests/dist/src")
+                cleanup("tests/dist/tests")
             }
         }],
     }

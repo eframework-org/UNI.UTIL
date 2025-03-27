@@ -1,8 +1,8 @@
 module.exports = {
     roots: [
-        "<rootDir>/test"
+        "<rootDir>/tests"
     ],
-    testRegex: "test/(.+)\\.Test\\.(jsx?|tsx?)$",
+    testRegex: "tests/(.+)\\.Test\\.(jsx?|tsx?)$",
     transform: {
         "^.+\\.tsx?$": "ts-jest"
     },
@@ -12,6 +12,6 @@ module.exports = {
         }
     },
     moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
-    coverageDirectory: "test/log",
+    coverageDirectory: "tests/log",
     testTimeout: 600000
 };
