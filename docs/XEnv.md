@@ -3,7 +3,7 @@
 [![Version](https://img.shields.io/npm/v/org.eframework.uni.util)](https://www.npmjs.com/package/org.eframework.uni.util)
 [![Downloads](https://img.shields.io/npm/dm/org.eframework.uni.util)](https://www.npmjs.com/package/org.eframework.uni.util)
 
-XEnv 是一个环境配置管理工具，支持多平台及运行时环境识别等功能。
+XEnv 是一个环境管理工具，支持多平台及运行时环境识别等功能。
 
 ## 功能特性
 
