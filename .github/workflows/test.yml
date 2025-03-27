@@ -38,12 +38,15 @@ jobs:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
       
-      - name: 安装依赖
+      - name: 安装 7zip、unzip、zip 依赖
         if: matrix.os == 'windows-latest'
         run: |
           choco install 7zip -y
           choco install unzip -y
           choco install zip -yy
+
+      - name: 安装依赖
+        run: |
           npm install
 
       - name: 运行测试

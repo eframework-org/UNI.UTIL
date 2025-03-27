@@ -20,7 +20,7 @@ EFramework Utility for Unite 是一个轻量级、跨平台的工具集，提供
 
 ### 平台支持
 
-| Runtime/Platform | Windows | Linux | OSX | Android | iOS | Browser |
+| Runtime/Platform | Windows | Linux | macOS | Android | iOS | Browser |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | Node | ✅ | ✅ | ✅ | ➖ | ➖ | ➖ |
 | Code | ✅ | ✅ | ✅ | ➖ | ➖ | ➖ |

@@ -11,7 +11,7 @@ export const TestXEnv = XTest.Test("XEnv", async () => {
         const path = require("path")
         if (process.platform == "win32") XTest.Expect(XEnv.Platform, "Platform").ToBe(XEnv.PlatformType.Windows)
         else if (process.platform == "linux") XTest.Expect(XEnv.Platform, "Platform").ToBe(XEnv.PlatformType.Linux)
-        else if (process.platform == "darwin") XTest.Expect(XEnv.Platform, "Platform").ToBe(XEnv.PlatformType.OSX)
+        else if (process.platform == "darwin") XTest.Expect(XEnv.Platform, "Platform").ToBe(XEnv.PlatformType.macOS)
         else if (process.platform == "android") XTest.Expect(XEnv.Platform, "Platform").ToBe(XEnv.PlatformType.Android)
         else XTest.Expect(XEnv.Platform, "Platform").ToBe(XEnv.PlatformType.Unknown)
 

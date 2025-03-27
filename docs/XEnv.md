@@ -109,7 +109,7 @@ XEnv 是一个环境配置管理工具，支持多平台及运行时环境识别
         Unknown, // 未知平台
         Windows, // Windows 平台
         Linux,   // Linux 平台
-        OSX,     // macOS 平台
+        macOS,     // macOS 平台
         Android, // Android 平台
         iOS,     // iOS 平台
         Browser  // 浏览器平台

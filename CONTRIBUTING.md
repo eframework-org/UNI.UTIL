@@ -421,7 +421,7 @@ XTest.Test("<模块名称>.<用例名称>", async () => {
 
 ### 4. 注意事项
 - TypeScript 不允许循环引用，注意模块间的依赖关系
-- Jest 在 OSX 上解析 ts 模块导入有问题，使用 tsconfig.jest.json 覆盖 module 选项为 CommonJS
+- Jest 在 macOS 上解析 ts 模块导入有问题，使用 tsconfig.jest.json 覆盖 module 选项为 CommonJS
 
 ### 5. 参考链接
 - [Cocos Creator原生文件接口](https://docs.cocos.com/creator/api/zh/namespace/native.fileUtils)

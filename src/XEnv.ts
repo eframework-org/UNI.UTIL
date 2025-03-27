@@ -102,7 +102,7 @@ import { XObject } from "./XObject"
  *     Unknown, // 未知平台
  *     Windows, // Windows 平台
  *     Linux,   // Linux 平台
- *     OSX,     // macOS 平台
+ *     macOS,   // macOS 平台
  *     Android, // Android 平台
  *     iOS,     // iOS 平台
  *     Browser  // 浏览器平台
@@ -145,7 +145,7 @@ export namespace XEnv {
         /** Linux 平台 */
         Linux,
         /** macOS 平台 */
-        OSX,
+        macOS,
         /** Android 平台 */
         Android,
         /** iOS 平台 */
@@ -193,7 +193,7 @@ export namespace XEnv {
         if (platform == null) {
             if (getRuntime() == RuntimeType.Node) {
                 if (process.platform == "win32") platform = PlatformType.Windows
-                else if (process.platform == "darwin") platform = PlatformType.OSX
+                else if (process.platform == "darwin") platform = PlatformType.macOS
                 else if (process.platform == "linux") platform = PlatformType.Linux
                 else if (process.platform == "android") platform = PlatformType.Android
                 else platform = PlatformType.Unknown
@@ -202,7 +202,7 @@ export namespace XEnv {
                 try {
                     if (cc.sys.isBrowser) platform = PlatformType.Browser
                     else if (cc.sys.platform == cc.sys.Platform.WIN32) platform = PlatformType.Windows
-                    else if (cc.sys.platform == cc.sys.Platform.MACOS) platform = PlatformType.OSX
+                    else if (cc.sys.platform == cc.sys.Platform.MACOS) platform = PlatformType.macOS
                     else if (cc.sys.platform == cc.sys.Platform.ANDROID) platform = PlatformType.Android
                     else if (cc.sys.platform == cc.sys.Platform.IOS) platform = PlatformType.iOS
                     else platform = PlatformType.Unknown
@@ -211,7 +211,7 @@ export namespace XEnv {
                 const plat = CS.UnityEngine.Application.platform
                 const platEnum = CS.UnityEngine.RuntimePlatform
                 if (plat == platEnum.WindowsPlayer || plat == platEnum.WindowsEditor) platform = PlatformType.Windows
-                else if (plat == platEnum.OSXPlayer || plat == platEnum.OSXEditor) platform = PlatformType.OSX
+                else if (plat == platEnum.OSXPlayer || plat == platEnum.OSXEditor) platform = PlatformType.macOS
                 else if (plat == platEnum.LinuxPlayer || plat == platEnum.LinuxEditor) platform = PlatformType.Linux
                 else if (plat == platEnum.Android) platform = PlatformType.Android
                 else if (plat == platEnum.IPhonePlayer) platform = PlatformType.iOS
