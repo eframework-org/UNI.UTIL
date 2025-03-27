@@ -51,6 +51,7 @@ jobs:
 
       - name: 运行测试
         id: test_result
+        shell: bash
         run: |
           echo "🔍 开始测试..."
           
