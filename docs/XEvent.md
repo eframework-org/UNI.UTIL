@@ -7,14 +7,14 @@ XEvent 是一个轻量级的事件管理器，支持多重监听、单次回调�
 
 ## 功能特性
 
-- 支持事件管理：提供完整的事件注册、注销和触发机制
-- 支持一次性事件：可注册执行一次后自动注销的事件回调
+- 事件管理：提供完整的事件注册、注销和通知机制
+- 单次回调：可注册执行一次后自动注销的事件回调
 
 ## 使用手册
 
-### 1. 事件管理器
+### 1. 管理器
 
-1. 创建事件管理器
+1. 创建管理器
 
     ```typescript
     // 创建允许多回调的事件管理器（默认模式）
@@ -24,6 +24,16 @@ XEvent 是一个轻量级的事件管理器，支持多重监听、单次回调�
     const singleManager = new XEvent.Manager(false);
     ```
 
+2. 查询事件
+
+    ```typescript
+    // 获取特定事件的所有回调
+    const callbacks = eventManager.Get(1001);
+    if (callbacks) {
+        console.log(`事件1001有${callbacks.length}个回调`);
+    }
+    ```
+
 2. 清除所有事件
 
     ```typescript
@@ -31,7 +41,7 @@ XEvent 是一个轻量级的事件管理器，支持多重监听、单次回调�
     eventManager.Clear();
     ```
 
-### 2. 事件注册与注销
+### 2. 注册与注销
 
 1. 注册事件回调
 
@@ -65,23 +75,13 @@ XEvent 是一个轻量级的事件管理器，支持多重监听、单次回调�
     eventManager.Unreg(1001);
     ```
 
-### 3. 事件触发
+### 3. 事件通知
 
 1. 触发事件
 
     ```typescript
     // 触发事件并传递多个参数
     eventManager.Notify(1002, 'action', 123, { detail: 'info' });
-    ```
-
-2. 获取事件回调
-
-    ```typescript
-    // 获取特定事件的所有回调
-    const callbacks = eventManager.Get(1001);
-    if (callbacks) {
-        console.log(`事件1001有${callbacks.length}个回调`);
-    }
     ```
 
 ## 常见问题
