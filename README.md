@@ -16,7 +16,7 @@ EFramework Utility for Unite 是一个轻量级、跨平台的工具集，提供
 - [XString](docs/XString.md) 提供了字符串处理工具集，支持查找、替换、格式化以及编码转换等功能
 - [XTest](docs/XTest.md) 提供了轻量级测试框架，支持 Jest 集成和独立运行两种模式
 - [XTime](docs/XTime.md) 提供了时间处理工具，支持日期格式化和时间戳转换等常用时间操作
-- [XUtility](docs/XUtility.md) 提供了一组通用工具集，支持UUID生成、可执行文件查找和随机数生成等常用操作
+- [XUtility](docs/XUtility.md) 提供了一组通用工具集，支持 UUID 生成、可执行文件查找和随机数生成等常用操作
 
 ### 平台支持
 

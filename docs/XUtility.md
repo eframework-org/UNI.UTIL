@@ -3,13 +3,13 @@
 [![Version](https://img.shields.io/npm/v/org.eframework.uni.util)](https://www.npmjs.com/package/org.eframework.uni.util)
 [![Downloads](https://img.shields.io/npm/dm/org.eframework.uni.util)](https://www.npmjs.com/package/org.eframework.uni.util)
 
-XUtility 提供了一组通用工具集，支持UUID生成、可执行文件查找和随机数生成等常用操作。
+XUtility 提供了一组通用工具集，支持 UUID 生成、可执行文件查找和随机数生成等常用操作。
 
 ## 功能特性
 
-- UUID生成：符合RFC4122 v4标准的UUID生成
+- UUID 生成：符合 RFC4122 v4 标准的标识符生成
 - 进程执行：提供配置子进程执行环境的选项
-- 文件查找：在系统PATH和自定义路径中查找可执行文件
+- 文件查找：在系统 PATH 和自定义路径中查找可执行文件
 - 随机数生成：支持生成指定范围内的随机整数
 
 ## 使用手册
