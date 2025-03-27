@@ -57,31 +57,6 @@
  * const percent = XUtility.RandomRange(0, 100); // 生成0到100之间的随机数（百分比）
  * ```
  * 
- * 5. 完整示例
- * 
- * 5.1 综合应用
- * ```typescript
- * // 生成唯一文件名
- * const fileName = `${XUtility.GenUUID()}.log`;
- * 
- * // 在指定目录执行命令
- * const options = XUtility.ExecOpt("./logs");
- * require("child_process").exec(`echo "test" > ${fileName}`, options);
- * 
- * // 查找并执行git命令
- * const gitPath = XUtility.FindBin("git");
- * if (gitPath) {
- *     require("child_process").exec(`${gitPath} status`, XUtility.ExecOpt("./project"));
- * }
- * 
- * // 生成随机测试数据
- * const testData = {
- *     id: XUtility.GenUUID(),
- *     score: XUtility.RandomRange(0, 100),
- *     timestamp: Date.now()
- * };
- * ```
- * 
  * 更多信息请参考模块文档。
  */
 export namespace XUtility {

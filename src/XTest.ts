@@ -107,10 +107,6 @@ import { XTime } from "./XTime"
  * });
  * ```
  * 
- * 常见问题
- * 1. XTest与Jest有什么区别？
- * XTest提供了比Jest更轻量的API，同时兼容Jest环境。在Jest环境中，XTest会自动集成到Jest的测试流程；在独立环境中，XTest可以独立运行，不依赖Jest。
- * 
  * 更多信息请参考模块文档。
  */
 export namespace XTest {

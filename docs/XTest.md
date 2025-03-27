@@ -91,8 +91,10 @@ XTest 提供了轻量级测试框架，支持 Jest 集成和独立运行两种�
 
 ## 常见问题
 
-1. XTest与Jest有什么区别？
-XTest提供了比Jest更轻量的API，同时兼容Jest环境。在Jest环境中，XTest会自动集成到Jest的测试流程；在独立环境中，XTest可以独立运行，不依赖Jest。
+### 1. XTest 与 Jest 有什么区别？
+1. XTest 提供了比 Jest 更轻量的 API，同时兼容 Jest 环境。
+2. 在 Jest 环境中，XTest 会自动集成到 Jest 的测试流程。
+3. 在独立环境中，XTest 可以独立运行，不依赖 Jest。
 
 更多问题，请查阅[问题反馈](../CONTRIBUTING.md#问题反馈)。
 

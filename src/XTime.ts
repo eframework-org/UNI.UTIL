@@ -41,24 +41,6 @@
  * const timestampInMilliseconds = XTime.GetMilliSecond();  // 例如：1706428800000
  * ```
  * 
- * 3. 完整示例
- * 
- * 3.1 综合应用
- * ```typescript
- * // 获取当前时间并格式化
- * const now = new Date();
- * const formattedTime = XTime.Format(now, "yyyy-MM-dd hh:mm:ss.SSS");
- * 
- * // 记录操作时间
- * const startTime = XTime.GetMilliSecond();
- * // ... 执行一些操作 ...
- * const elapsedTime = XTime.GetMilliSecond() - startTime;
- * 
- * // 生成时间戳文件名
- * const timestamp = XTime.GetTimestamp();
- * const fileName = `backup_${timestamp}.zip`;
- * ```
- * 
  * 更多信息请参考模块文档。
  */
 export namespace XTime {
