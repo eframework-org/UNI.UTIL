@@ -28,8 +28,8 @@
   "files": [
     "dist/",
     "test/dist/",
-    "types",
-    "docs",
+    "types/",
+    "docs/",
     "package.json",
     "README.md",
     "LICENSE"
