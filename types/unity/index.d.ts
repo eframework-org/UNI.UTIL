@@ -2194,33 +2194,7 @@ declare namespace CS {
         /** Base class for all objects Unity can reference.
         */
         interface Object {
-            GetTransform(): UnityEngine.Transform;
-            GetTransform($path: string): UnityEngine.Transform;
-            GetChildren($includeInactive?: boolean): System.Array$1<UnityEngine.Transform>;
-            GetChildren($path: string, $includeInactive?: boolean): System.Array$1<UnityEngine.Transform>;
-            SetPosition($position: UnityEngine.Vector3): void;
-            SetPosition($path: string, $position: UnityEngine.Vector3): void;
-            SetLocalPosition($position: UnityEngine.Vector3): void;
-            SetLocalPosition($path: string, $position: UnityEngine.Vector3): void;
-            SetRotation($eulerAngles: UnityEngine.Vector3): void;
-            SetRotation($path: string, $eulerAngles: UnityEngine.Vector3): void;
-            SetLocalRotation($eulerAngles: UnityEngine.Vector3): void;
-            SetLocalRotation($path: string, $eulerAngles: UnityEngine.Vector3): void;
-            SetLocalScale($scale: UnityEngine.Vector3): void;
-            SetLocalScale($path: string, $scale: UnityEngine.Vector3): void;
-            SetParent($parentObj: UnityEngine.Object): UnityEngine.Transform;
-            SetParent($parentObj: UnityEngine.Object, $worldPositionStavs: boolean): UnityEngine.Transform;
-            SetParent($rootObj: UnityEngine.Object, $parentPath: string): UnityEngine.Transform;
-            SetParent($rootObj: UnityEngine.Object, $parentPath: string, $worldPositionStavs?: boolean): UnityEngine.Transform;
-            DestroyGO(): void;
-            DestroyGO($immediate: boolean): void;
-            DestroyGO($path: string): void;
-            DestroyGO($path: string, $immediate: boolean): void;
-            CloneGO(): UnityEngine.GameObject;
-            SetLayer($layerName: string): void;
-            SetLayer($path: string, $layerName: string): void;
-            SetActiveState($active: boolean): void;
-            SetActiveState($path: string, $active: boolean): void;
+
         }
         /** Base class for everything attached to a GameObject.
         */
@@ -3560,18 +3534,11 @@ declare namespace CS {
             public GetChild($index: number): UnityEngine.Transform
             public SetParent($parentObj: UnityEngine.Object): UnityEngine.Transform
             public SetParent($parentObj: UnityEngine.Object, $worldPositionStavs: boolean): UnityEngine.Transform
-            public SetParent($rootObj: UnityEngine.Object, $parentPath: string): UnityEngine.Transform
-            public SetParent($rootObj: UnityEngine.Object, $parentPath: string, $worldPositionStavs?: boolean): UnityEngine.Transform
         }
         /** Position, rotation and scale of an object.
         */
         interface Transform {
-            Index($name: string, $type?: System.Type): any;
             AddChild($prefab: UnityEngine.GameObject, $layer?: number): UnityEngine.GameObject;
-            EnsureChild($count: number, $active?: boolean, $prefab?: UnityEngine.GameObject): void;
-            EachChild($handler: EP.U3D.UI.UIHelper.EachChildHandler): void;
-            ShowChild($handler?: EP.U3D.UI.UIHelper.EachChildHandler): void;
-            HideChild($handler?: EP.U3D.UI.UIHelper.EachChildHandler): void;
         }
         /** Culling mode for the Animator.
         */
@@ -4164,7 +4131,6 @@ declare namespace CS {
         /** Base class for all entities in Unity Scenes.
         */
         interface GameObject {
-            Index($name: string, $type?: System.Type): any;
             SetLayer($layer: number): void;
         }
         /** Store a collection of Keyframes that can be evaluated over time.
@@ -15634,7 +15600,7 @@ declare namespace CS {
         /** Position, size, anchor and pivot information for a rectangle.
         */
         interface RectTransform {
-            Index($name: string, $type?: System.Type): any;
+            
         }
         /** The coordinate space in which to operate.
         */
@@ -24745,7 +24711,7 @@ declare namespace CS {
         /** Element that can be used for screen rendering.
         */
         interface Canvas {
-            Index($name: string, $type?: System.Type): any;
+            
         }
         /** RenderMode for the Canvas.
         */

@@ -3,7 +3,63 @@
 // license that can be found in the LICENSE file.
 
 /**
- * 时间工具：时间格式化、时间戳转换等。
+ * XTime 提供了时间处理工具，支持日期格式化和时间戳转换等常用时间操作。
+ * 
+ * 功能特性
+ * - 灵活的日期格式化：支持自定义格式模板，满足多样化的日期展示需求
+ * - 时间戳转换：支持获取秒级和毫秒级时间戳
+ * 
+ * 使用手册
+ * 1. 日期格式化
+ * 
+ * 1.1 基本用法
+ * ```typescript
+ * // 格式化当前日期
+ * const now = new Date();
+ * const formattedDate = XTime.Format(now, "yyyy-MM-dd hh:mm:ss");  // 例如："2025-01-28 14:30:00"
+ * const chineseDate = XTime.Format(now, "yyyy年MM月dd日");  // 例如："2025年01月28日"
+ * ```
+ * 
+ * 1.2 支持的格式化占位符
+ * - yyyy: 年份
+ * - MM: 月份，补零
+ * - dd: 日期，补零
+ * - hh: 小时，补零
+ * - mm: 分钟，补零
+ * - ss: 秒钟，补零
+ * - SSS: 毫秒，补零
+ * - q: 季度
+ * 
+ * 2. 获取时间戳
+ * 
+ * 2.1 基本用法
+ * ```typescript
+ * // 获取秒级时间戳
+ * const timestampInSeconds = XTime.GetTimestamp();  // 例如：1706428800
+ * 
+ * // 获取毫秒级时间戳
+ * const timestampInMilliseconds = XTime.GetMilliSecond();  // 例如：1706428800000
+ * ```
+ * 
+ * 3. 完整示例
+ * 
+ * 3.1 综合应用
+ * ```typescript
+ * // 获取当前时间并格式化
+ * const now = new Date();
+ * const formattedTime = XTime.Format(now, "yyyy-MM-dd hh:mm:ss.SSS");
+ * 
+ * // 记录操作时间
+ * const startTime = XTime.GetMilliSecond();
+ * // ... 执行一些操作 ...
+ * const elapsedTime = XTime.GetMilliSecond() - startTime;
+ * 
+ * // 生成时间戳文件名
+ * const timestamp = XTime.GetTimestamp();
+ * const fileName = `backup_${timestamp}.zip`;
+ * ```
+ * 
+ * 更多信息请参考模块文档。
  */
 export namespace XTime {
     /**

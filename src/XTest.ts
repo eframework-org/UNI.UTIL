@@ -8,7 +8,110 @@ import { XObject } from "./XObject"
 import { XTime } from "./XTime"
 
 /**
- * 测试框架：支持 Jest 和独立运行两种模式。
+ * XTest 提供了轻量级测试框架，支持 Jest 集成和独立运行两种模式。
+ * 
+ * 功能特性
+ * - 提供断言功能：丰富的值比较和类型检查断言
+ * - 提供详细日志：测试过程中自动记录环境信息和执行时间
+ * 
+ * 使用手册
+ * 1. 基本测试
+ * 
+ * 1.1 创建测试用例
+ * ```typescript
+ * // 定义一个简单的测试用例
+ * XTest.Test("加法测试", async () => {
+ *     const result = 1 + 2;
+ *     XTest.Expect(result).ToBe(3);
+ * });
+ * ```
+ * 
+ * 1.2 运行测试
+ * ```typescript
+ * // 在Jest环境中自动运行
+ * // 在独立环境中需要手动执行返回的函数
+ * 
+ * // 创建并立即执行测试
+ * (XTest.Test("独立环境测试", async () => {
+ *     // 测试代码
+ * }))();
+ * ```
+ * 
+ * 2. 断言功能
+ * 
+ * 2.1 值比较断言
+ * ```typescript
+ * // 等值比较
+ * XTest.Expect(2 + 2).ToBe(4);
+ * 
+ * // 大小比较
+ * XTest.Expect(5).ToBeGreaterThan(3);
+ * XTest.Expect(5).ToBeGreaterThanOrEqual(5);
+ * XTest.Expect(3).ToBeLessThan(5);
+ * XTest.Expect(3).ToBeLessThanOrEqual(3);
+ * ```
+ * 
+ * 2.2 类型检查断言
+ * ```typescript
+ * // null检查
+ * XTest.Expect(null).ToBeNull();
+ * XTest.Expect(undefined).Not.ToBeNull();
+ * 
+ * // undefined检查
+ * XTest.Expect(undefined).ToBeUndefined();
+ * XTest.Expect("hello").Not.ToBeUndefined();
+ * 
+ * // NaN检查
+ * XTest.Expect(NaN).ToBeNaN();
+ * XTest.Expect(123).Not.ToBeNaN();
+ * ```
+ * 
+ * 3. 断言标签和参数
+ * 
+ * 3.1 使用标签提高可读性
+ * ```typescript
+ * // 添加描述性标签
+ * const score = 85;
+ * XTest.Expect(score, "考试分数").ToBeGreaterThan(60);
+ * 
+ * // 添加额外参数提供上下文
+ * const user = { name: "张三", age: 25 };
+ * XTest.Expect(user.age, "用户年龄", user).ToBeGreaterThan(18);
+ * ```
+ * 
+ * 3.2 否定断言
+ * ```typescript
+ * // 使用Not属性进行否定断言
+ * XTest.Expect("hello").Not.ToBe("world");
+ * XTest.Expect(null).Not.ToBeUndefined();
+ * ```
+ * 
+ * 4. 完整测试示例
+ * 
+ * 4.1 综合应用
+ * ```typescript
+ * XTest.Test("用户验证测试", async () => {
+ *     // 模拟用户数据
+ *     const user = {
+ *         id: 1001,
+ *         name: "张三",
+ *         age: 25,
+ *         isActive: true
+ *     };
+ *     
+ *     // 执行多个断言
+ *     XTest.Expect(user.id, "用户ID").ToBeGreaterThan(0);
+ *     XTest.Expect(user.name, "用户名称").Not.ToBeNull();
+ *     XTest.Expect(user.age, "用户年龄").ToBeGreaterThanOrEqual(18);
+ *     XTest.Expect(user.isActive, "账户状态").ToBe(true);
+ * });
+ * ```
+ * 
+ * 常见问题
+ * 1. XTest与Jest有什么区别？
+ * XTest提供了比Jest更轻量的API，同时兼容Jest环境。在Jest环境中，XTest会自动集成到Jest的测试流程；在独立环境中，XTest可以独立运行，不依赖Jest。
+ * 
+ * 更多信息请参考模块文档。
  */
 export namespace XTest {
     var isJest: boolean

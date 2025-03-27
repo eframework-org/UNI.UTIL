@@ -3,7 +3,86 @@
 // license that can be found in the LICENSE file.
 
 /**
- * 通用工具：UUID生成、进程执行、随机数等。
+ * XUtility 提供了一组通用工具集，支持UUID生成、可执行文件查找和随机数生成等常用操作。
+ * 
+ * 功能特性
+ * - UUID生成：符合RFC4122 v4标准的UUID生成
+ * - 进程执行：提供配置子进程执行环境的选项
+ * - 文件查找：在系统PATH和自定义路径中查找可执行文件
+ * - 随机数生成：支持生成指定范围内的随机整数
+ * 
+ * 使用手册
+ * 1. UUID生成
+ * 
+ * 1.1 基本用法
+ * ```typescript
+ * const uuid = XUtility.GenUUID(); // "550e8400-e29b-41d4-a716-446655440000"
+ * ```
+ * 
+ * 2. 进程执行选项
+ * 
+ * 2.1 基本用法
+ * ```typescript
+ * const options = XUtility.ExecOpt("./project");
+ * require("child_process").exec("npm install", options);
+ * ```
+ * 
+ * 2.2 选项配置说明
+ * - encoding: "utf8"
+ * - timeout: 0（无超时限制）
+ * - maxBuffer: 1GB
+ * - killSignal: "SIGTERM"
+ * - cwd: 指定的工作目录
+ * - env: 继承自当前进程的环境变量
+ * 
+ * 3. 查找可执行文件
+ * 
+ * 3.1 基本用法
+ * ```typescript
+ * const gitPath = XUtility.FindBin("git", "C:/Program Files/Git/bin");
+ * if (gitPath) {
+ *     console.log("Git found at:", gitPath);
+ * }
+ * ```
+ * 
+ * 3.2 平台特性
+ * - 在Windows系统上，会自动尝试查找带`.exe`和`.bat`扩展名的文件
+ * - 支持在系统PATH和自定义路径中查找
+ * 
+ * 4. 随机数生成
+ * 
+ * 4.1 基本用法
+ * ```typescript
+ * const roll = XUtility.RandomRange(1, 6); // 生成1到6之间的随机数（骰子）
+ * const percent = XUtility.RandomRange(0, 100); // 生成0到100之间的随机数（百分比）
+ * ```
+ * 
+ * 5. 完整示例
+ * 
+ * 5.1 综合应用
+ * ```typescript
+ * // 生成唯一文件名
+ * const fileName = `${XUtility.GenUUID()}.log`;
+ * 
+ * // 在指定目录执行命令
+ * const options = XUtility.ExecOpt("./logs");
+ * require("child_process").exec(`echo "test" > ${fileName}`, options);
+ * 
+ * // 查找并执行git命令
+ * const gitPath = XUtility.FindBin("git");
+ * if (gitPath) {
+ *     require("child_process").exec(`${gitPath} status`, XUtility.ExecOpt("./project"));
+ * }
+ * 
+ * // 生成随机测试数据
+ * const testData = {
+ *     id: XUtility.GenUUID(),
+ *     score: XUtility.RandomRange(0, 100),
+ *     timestamp: Date.now()
+ * };
+ * ```
+ * 
+ * 更多信息请参考模块文档。
  */
 export namespace XUtility {
     /**
