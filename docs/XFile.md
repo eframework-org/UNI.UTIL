@@ -3,7 +3,7 @@
 [![Version](https://img.shields.io/npm/v/org.eframework.uni.util)](https://www.npmjs.com/package/org.eframework.uni.util)
 [![Downloads](https://img.shields.io/npm/dm/org.eframework.uni.util)](https://www.npmjs.com/package/org.eframework.uni.util)
 
-XFile 提供了跨平台文件系统操作功能，支持在不同运行环境下进行统一的文件和目录操作。
+XFile 实现了跨平台的文件管理系统，支持在不同运行环境下进行统一的文件和目录操作。
 
 ## 功能特性
 

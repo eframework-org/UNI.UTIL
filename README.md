@@ -10,7 +10,7 @@ EFramework Utility for Unite 是一个轻量级、跨平台的工具集，提供
 - [XCollect](docs/XCollect.md) 提供了集合工具，实现了数组/列表的增删改查、排序等功能
 - [XEnv](docs/XEnv.md) 是一个环境管理工具，支持多平台及运行时环境识别等功能
 - [XEvent](docs/XEvent.md) 是一个轻量级的事件管理器，支持多重监听、单次回调等功能
-- [XFile](docs/XFile.md) 提供了跨平台文件系统操作功能，支持在不同运行环境下进行统一的文件和目录操作
+- [XFile](docs/XFile.md) 实现了跨平台的文件管理系统，支持在不同运行环境下进行统一的文件和目录操作
 - [XLog](docs/XLog.md) 提供了一个遵循 RFC5424 标准的日志系统，支持多级别输出和内置堆栈追踪
 - [XObject](docs/XObject.md) 提供了对象操作工具集，支持类型判断、函数绑定、方法劫持等功能
 - [XString](docs/XString.md) 提供了字符串处理工具集，支持查找、替换、格式化以及编码转换等功能

@@ -7,7 +7,7 @@ import { XString } from "./XString"
 import { XUtility } from "./XUtility"
 
 /**
- * XFile 提供了跨平台文件系统操作功能，支持在不同运行环境下进行统一的文件和目录操作。
+ * XFile 实现了跨平台的文件管理系统，支持在不同运行环境下进行统一的文件和目录操作。
  * 
  * 功能特性
  * - 支持文件和目录基本操作：创建、读写、删除、复制
