@@ -457,24 +457,45 @@ export namespace XFile {
 
         const path = require("path")
         const child_process = require("child_process")
-        const paths = ["C:/Program Files/WinRAR",
+        const extname = path.extname(zip).toLowerCase()
+
+        // 确保解压目标目录存在
+        if (!HasDirectory(unzip)) CreateDirectory(unzip)
+
+        // 设置搜索路径
+        let paths: string[] = ["C:/Program Files/WinRAR",
             "C:/Program Files/7-Zip",
             "C:/Program Files/Git/usr/bin"]
 
         let cmd: string
         let args: string[]
-        cmd = XUtility.FindBin("WinRAR", ...paths)
-        if (cmd) {
-            args = ["x", "-o+", zip]
+
+        // 处理 .tar.gz 文件 (Linux 和 macOS)
+        if (extname === ".gz" || zip.toLowerCase().endsWith(".tar.gz") || extname === ".tgz") {
+            if (process.platform === "linux" || process.platform === "darwin") {
+                cmd = XUtility.FindBin("tar", ...paths)
+                if (cmd) args = ["-xzf", zip, "-C", unzip]
+            }
         }
-        if (!cmd && path.extname(zip).toLowerCase() === ".7z") {
+
+        // 处理 .7z 文件
+        if (!cmd && extname === ".7z") {
             cmd = XUtility.FindBin("7z", ...paths)
             if (cmd) args = ["x", zip, "-o" + unzip, "-y"]
         }
+
+        // Windows 平台或其他文件类型
+        if (!cmd && process.platform === "win32") {
+            cmd = XUtility.FindBin("WinRAR", ...paths)
+            if (cmd) args = ["x", "-o+", zip]
+        }
+
+        // 尝试使用 unzip 命令
         if (!cmd) {
             cmd = XUtility.FindBin("unzip", ...paths)
             if (cmd) args = ["-o", zip, `-d${unzip}`]
         }
+
         if (!cmd) throw new Error(`No suitable tool found to unzip the file: ${zip}`)
 
         const ret = child_process.spawnSync(cmd, args, { cwd: unzip })

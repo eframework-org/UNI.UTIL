@@ -68,13 +68,25 @@ export const TestXFile = XTest.Test("XFile", async () => {
         XFile.CopyDirectory(tempDir1, tempDir2)
         XTest.Expect(XFile.HasDirectory(tempDir2), "CopyDirectory", tempDir1, tempDir2).ToBe(true)
 
+        const test7z = XFile.PathJoin(XEnv.LocalPath, "..", "tests", "file", "test7z.7z")
+        XFile.Unzip(test7z, tempRoot)
+        XTest.Expect(XFile.HasDirectory(XFile.PathJoin(tempRoot, XFile.FileName(test7z, false))), "Unzip", test7z).ToBe(true)
+
+        const testTar = XFile.PathJoin(XEnv.LocalPath, "..", "tests", "file", "testtar.tar")
+        XFile.Unzip(testTar, tempRoot)
+        XTest.Expect(XFile.HasDirectory(XFile.PathJoin(tempRoot, XFile.FileName(testTar, false))), "Unzip", testTar).ToBe(true)
+
+        const testTarGz = XFile.PathJoin(XEnv.LocalPath, "..", "tests", "file", "testtargz.tar.gz")
+        XFile.Unzip(testTarGz, tempRoot)
+        XTest.Expect(XFile.HasDirectory(XFile.PathJoin(tempRoot, XFile.FileName(XFile.FileName(testTarGz, false), false))), "Unzip", testTarGz).ToBe(true)
+
+        const testTgz = XFile.PathJoin(XEnv.LocalPath, "..", "tests", "file", "testtgz.tgz")
+        XFile.Unzip(testTgz, tempRoot)
+        XTest.Expect(XFile.HasDirectory(XFile.PathJoin(tempRoot, XFile.FileName(testTgz, false))), "Unzip", testTgz).ToBe(true)
+
         const testZip = XFile.PathJoin(XEnv.LocalPath, "..", "tests", "file", "testzip.zip")
         XFile.Unzip(testZip, tempRoot)
         XTest.Expect(XFile.HasDirectory(XFile.PathJoin(tempRoot, XFile.FileName(testZip, false))), "Unzip", testZip).ToBe(true)
-
-        const test7z = XFile.PathJoin(XEnv.LocalPath, "..", "tests", "file", "test7z.7z")
-        XFile.Unzip(test7z, tempRoot)
-        XTest.Expect(XFile.HasDirectory(XFile.PathJoin(tempRoot, XFile.FileName(test7z, false))), "Unzip", testZip).ToBe(true)
 
         const tempZipDir = XFile.PathJoin(tempRoot, XFile.FileName(testZip, false))
         const tempZipFile = XFile.PathJoin(tempRoot, XFile.FileName(testZip))
