@@ -455,7 +455,6 @@ export namespace XFile {
     export function Unzip(zip: string, unzip: string, func?: Function) {
         if (!XEnv.IsNode) throw XEnv.Unsupport
 
-        const path = require("path")
         const child_process = require("child_process")
 
         // 确保解压目标目录存在
@@ -471,10 +470,19 @@ export namespace XFile {
 
         if (zip.endsWith(".gz") || zip.endsWith(".tar.gz") || zip.endsWith(".tgz")) {
             cmd = XUtility.FindBin("tar", ...paths)
-            if (cmd) args = ["--force-local", "-xzf", zip, "-C", unzip]
+            if (cmd) {
+                args = ["-xzf", zip, "-C", unzip]
+                // 如果路径中包含 @ 会被识别为远端路径
+                // 使用 --force-local 强制识别为本地路径
+                // macOS 平台不支持 --force-local
+                if (zip.indexOf("@") && process.platform != "darwin") args.push("--force-local")
+            }
         } else if (zip.endsWith(".tar")) {
             cmd = XUtility.FindBin("tar", ...paths)
-            if (cmd) args = ["--force-local", "-xf", zip, "-C", unzip]
+            if (cmd) {
+                args = ["-xf", zip, "-C", unzip]
+                if (zip.indexOf("@") && process.platform != "darwin") args.push("--force-local")
+            }
         } else if (zip.endsWith(".7z")) {
             cmd = XUtility.FindBin("7z", ...paths)
             if (cmd) args = ["x", zip, "-o" + unzip, "-y"]
