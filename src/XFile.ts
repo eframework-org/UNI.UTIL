@@ -457,7 +457,6 @@ export namespace XFile {
 
         const path = require("path")
         const child_process = require("child_process")
-        const extname = path.extname(zip).toLowerCase()
 
         // 确保解压目标目录存在
         if (!HasDirectory(unzip)) CreateDirectory(unzip)
@@ -470,16 +469,13 @@ export namespace XFile {
         let cmd: string
         let args: string[]
 
-        // 处理 .tar.gz 文件 (Linux 和 macOS)
-        if (extname === ".gz" || zip.toLowerCase().endsWith(".tar.gz") || extname === ".tgz") {
-            if (process.platform === "linux" || process.platform === "darwin") {
-                cmd = XUtility.FindBin("tar", ...paths)
-                if (cmd) args = ["-xzf", zip, "-C", unzip]
-            }
-        }
-
-        // 处理 .7z 文件
-        if (!cmd && extname === ".7z") {
+        if (zip.endsWith(".gz") || zip.endsWith(".tar.gz") || zip.endsWith(".tgz")) {
+            cmd = XUtility.FindBin("tar", ...paths)
+            if (cmd) args = ["--force-local", "-xzf", zip, "-C", unzip]
+        } else if (zip.endsWith(".tar")) {
+            cmd = XUtility.FindBin("tar", ...paths)
+            if (cmd) args = ["--force-local", "-xf", zip, "-C", unzip]
+        } else if (zip.endsWith(".7z")) {
             cmd = XUtility.FindBin("7z", ...paths)
             if (cmd) args = ["x", zip, "-o" + unzip, "-y"]
         }
