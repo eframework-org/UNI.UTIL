@@ -20,16 +20,16 @@ EFramework Utility for Unite 是一个轻量级、跨平台的工具集，提供
 
 ### 平台支持
 
-| Runtime/Platform | Windows | Linux | macOS | Android | iOS | Browser |
+| Runtime/Platform | 🪟 Windows | 🐧 Linux | 🍎 macOS | 🤖 Android | 📱 iOS | 🌐 Browser |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Node | ✅ | ✅ | ✅ | ➖ | ➖ | ➖ |
-| Code | ✅ | ✅ | ✅ | ➖ | ➖ | ➖ |
-| Cocos | ✅ | 📅 | 📅 | 📅 | 📅 | 📅 |
-| Unity | ✅ | 📅 | ✅ | ✅ | ✅ | 📅 |
-| Unreal | 📅 | 📅 | 📅 | 📅 | 📅 | 📅 |
-| Electron | 📅 | 📅 | 📅 | ➖ | ➖ | ➖ |
-| Dom | ➖ | ➖ | ➖ | ➖ | ➖ | 📅 |
-- ✅已支持  📅开发中  ➖不适用
+| Node | ✅ | ✅ | ✅ | 🚫 | 🚫 | 🚫 |
+| Code | ✅ | ✅ | ✅ | 🚫 | 🚫 | 🚫 |
+| Cocos | ✅ | 🛠️ | 🛠️ | 🛠️ | 🛠️ | 🛠️ |
+| Unity | ✅ | 🛠️ | ✅ | ✅ | ✅ | 🛠️ |
+| Unreal | 🛠️ | 🛠️ | 🛠️ | 🛠️ | 🛠️ | 🛠️ |
+| Electron | 🛠️ | 🛠️ | 🛠️ | 🚫 | 🚫 | 🚫 |
+| Dom | 🚫 | 🚫 | 🚫 | 🚫 | 🚫 | 🛠️ |
+- ✅已支持  🛠️计划中  🚫不适用
 
 ## 常见问题
 
