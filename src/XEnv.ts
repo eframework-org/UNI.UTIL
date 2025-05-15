@@ -435,6 +435,24 @@ export namespace XEnv {
                                 localPath = dir
                             }
                         }
+                    } else if (XEnv.IsCode) {
+                        const vscode = require("vscode")
+                        const exts = vscode.extensions.all
+                        let err = new Error()
+                        if (err.stack) {
+                            let lines = err.stack.split("\n")
+                            for (let i = 0; i < lines.length; i++) {
+                                let line = lines[i]
+                                for (let j = 0; j < exts.length; j++) {
+                                    const ext = exts[j]
+                                    if (line.indexOf(ext.extensionPath) >= 0) {
+                                        localPath = ext.extensionPath
+                                        break
+                                    }
+                                }
+                                if (localPath) break
+                            }
+                        }
                     } else {
                         let err = new Error()
                         if (err.stack) {
