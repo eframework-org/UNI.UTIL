@@ -7,7 +7,7 @@ on:
         description: 'Node 版本：https://nodejs.org/download/release/'
         required: false
         type: string
-        default: '["16", "18", "20", "22"]'
+        default: '["18", "20", "22", "24"]'
       target_platforms:
         description: '目标平台：windows-latest, ubuntu-latest, macos-latest'
         required: false
@@ -19,7 +19,7 @@ on:
         description: 'Node 版本：https://nodejs.org/download/release/'
         required: false
         type: string
-        default: '["16", "18", "20", "22"]'
+        default: '["18", "20", "22", "24"]'
       target_platforms:
         description: '目标平台：windows-latest, ubuntu-latest, macos-latest'
         required: false
