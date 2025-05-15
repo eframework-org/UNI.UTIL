@@ -42,4 +42,34 @@ export const TestXString = XTest.Test("XString", async () => {
 
     XTest.Expect(XString.ToVersion("1.10.0"), "ToVersion").ToBe(11000)
     XTest.Expect(XString.FromVersion(11000), "FromVersion").ToBe("1.10.0")
+
+    // 测试 Random 函数的各种格式
+    {
+        // 测试默认格式 (N)
+        const randomN = XString.Random()
+        XTest.Expect(randomN.length, "Random N format length").ToBe(32)
+        XTest.Expect(randomN.indexOf("-"), "Random N format no hyphens").ToBe(-1)
+
+        // 测试 D 格式 (带连字符)
+        const randomD = XString.Random("D")
+        XTest.Expect(randomD.length, "Random D format length").ToBe(36)
+        XTest.Expect(randomD.split("-").length, "Random D format hyphen count").ToBe(5)
+
+        // 测试 B 格式 (带大括号和连字符)
+        const randomB = XString.Random("B")
+        XTest.Expect(randomB.charAt(0), "Random B format opening brace").ToBe("{")
+        XTest.Expect(randomB.charAt(randomB.length - 1), "Random B format closing brace").ToBe("}")
+        XTest.Expect(randomB.length, "Random B format length").ToBe(38)
+
+        // 测试 P 格式 (带括号和连字符)
+        const randomP = XString.Random("P")
+        XTest.Expect(randomP.charAt(0), "Random P format opening parenthesis").ToBe("(")
+        XTest.Expect(randomP.charAt(randomP.length - 1), "Random P format closing parenthesis").ToBe(")")
+        XTest.Expect(randomP.length, "Random P format length").ToBe(38)
+
+        // 测试无效格式 (应该默认为 N 格式)
+        const randomInvalid = XString.Random("X")
+        XTest.Expect(randomInvalid.length, "Random invalid format length").ToBe(32)
+        XTest.Expect(randomInvalid.indexOf("-"), "Random invalid format no hyphens").ToBe(-1)
+    }
 })

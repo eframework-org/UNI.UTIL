@@ -8,7 +8,6 @@ import { XTest } from "../src/XTest"
 import { XUtility } from "../src/XUtility"
 
 export const TestXUtility = XTest.Test("XUtility", async () => {
-    XTest.Expect(XUtility.GenUUID(), "GenUUID").Not.ToBeNull()
     if (XEnv.IsNode) XTest.Expect(XUtility.ExecOpt(XEnv.LocalPath), "ExecOpt").Not.ToBeNull()
 
     let nums = []

@@ -483,4 +483,45 @@ export namespace XString {
             return Buffer.from(str, "base64").toString("utf8")
         }
     }
+
+
+    /**
+     * 生成随机字符串。
+     * 
+     * @param format GUID 格式化选项，默认为 N 格式（32 位，无连字符）。
+     * @returns 随机字符串。
+     * @example
+     * ```typescript
+     * const guid = XString.Random();     // 如：c9a0cad5e9624b3b8e07f5df0e5c1bbc
+     * const guid2 = XString.Random("D"); // 如：c9a0cad5-e962-4b3b-8e07-f5df0e5c1bbc
+     * ```
+     * @remarks
+     * 支持的格式：
+     * - N：32 位数字，无连字符
+     * - D：含连字符的 32 位数字
+     * - B：带大括号、连字符的 32 位数字
+     * - P：带括号、连字符的 32 位数字
+     */
+    export function Random(format: string = "N"): string {
+        let date = new Date().getTime()
+        let uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
+            let r = (date + Math.random() * 16) % 16 | 0
+            date = Math.floor(date / 16)
+            return (c == "x" ? r : (r & 0x3 | 0x8)).toString(16)
+        })
+
+        // 根据格式选项处理 UUID
+        switch (format.toUpperCase()) {
+            case "N":
+                return uuid.replace(/-/g, "")
+            case "D":
+                return uuid
+            case "B":
+                return `{${uuid}}`
+            case "P":
+                return `(${uuid})`
+            default:
+                return uuid.replace(/-/g, "")
+        }
+    }
 }
