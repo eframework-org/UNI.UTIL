@@ -180,9 +180,7 @@ export namespace XLog {
      * @param exception 异常信息。
      * @param extras 附加信息。
      */
-    export function Panic(exception: Error, extras?: string) {
-        console.error(exception, extras)
-    }
+    export function Panic(exception: Error, extras?: string) { console.error(exception, extras) }
 
     /**
      * 紧急（0）：系统不可用，通常用于灾难性故障。
@@ -190,9 +188,7 @@ export namespace XLog {
      * @param data 日志内容。
      * @param args 格式参数。
      */
-    export function Emergency(data: any, ...args: any[]) {
-        Print(data, LevelType.Emergency, args)
-    }
+    export function Emergency(data: any, ...args: any[]) { XLog.Print(data, LevelType.Emergency, args) }
 
     /**
      * 警报（1）：必须立即采取行动，指示需要立即注意的情况。
@@ -200,9 +196,7 @@ export namespace XLog {
      * @param data 日志内容。
      * @param args 格式参数。
      */
-    export function Alert(data: any, ...args: any[]) {
-        Print(data, LevelType.Alert, args)
-    }
+    export function Alert(data: any, ...args: any[]) { XLog.Print(data, LevelType.Alert, args) }
 
     /**
      * 严重（2）：严重条件，指示需要立即注意的严重故障。
@@ -210,9 +204,7 @@ export namespace XLog {
      * @param data 日志内容。
      * @param args 格式参数。
      */
-    export function Critical(data: any, ...args: any[]) {
-        Print(data, LevelType.Critical, args)
-    }
+    export function Critical(data: any, ...args: any[]) { XLog.Print(data, LevelType.Critical, args) }
 
     /**
      * 记录错误级别日志。
@@ -224,9 +216,7 @@ export namespace XLog {
      * XLog.Error("Failed to load file: {0}", filename);
      * ```
      */
-    export function Error(data: any, ...args: any[]) {
-        Print(data, LevelType.Error, args)
-    }
+    export function Error(data: any, ...args: any[]) { XLog.Print(data, LevelType.Error, args) }
 
     /**
      * 记录警告级别日志。
@@ -238,9 +228,7 @@ export namespace XLog {
      * XLog.Warn("Memory usage high: {0}%", memoryUsage);
      * ```
      */
-    export function Warn(data: any, ...args: any[]) {
-        Print(data, LevelType.Warn, args)
-    }
+    export function Warn(data: any, ...args: any[]) { XLog.Print(data, LevelType.Warn, args) }
 
     /**
      * 通知（5）：正常但重要的情况，指示值得注意但不一定有问题的事件。
@@ -248,9 +236,7 @@ export namespace XLog {
      * @param data 日志内容。
      * @param args 格式参数。
      */
-    export function Notice(data: any, ...args: any[]) {
-        Print(data, LevelType.Notice, args)
-    }
+    export function Notice(data: any, ...args: any[]) { XLog.Print(data, LevelType.Notice, args) }
 
     /**
      * 记录信息级别日志。
@@ -262,9 +248,7 @@ export namespace XLog {
      * XLog.Info("Application started, version: {0}", version);
      * ```
      */
-    export function Info(data: any, ...args: any[]) {
-        Print(data, LevelType.Info, args)
-    }
+    export function Info(data: any, ...args: any[]) { XLog.Print(data, LevelType.Info, args) }
 
     /**
      * 记录调试级别日志。
@@ -276,9 +260,7 @@ export namespace XLog {
      * XLog.Debug("Processing item {0} of {1}", current, total);
      * ```
      */
-    export function Debug(data: any, ...args: any[]) {
-        Print(data, LevelType.Debug, args)
-    }
+    export function Debug(data: any, ...args: any[]) { XLog.Print(data, LevelType.Debug, args) }
 
     const isUnityEditor: boolean = XEnv.IsUnity ? CS.UnityEngine.Application.isEditor : false
     const unityLogRegex = /at ([a-zA-Z0-9#$._ ]+ \()?([^\n\r\*\"\|\<\>]+(.js|.cjs|.mjs|.ts|.mts))\:([0-9]+)\:([0-9]+)\)?/g
