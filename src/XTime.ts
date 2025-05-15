@@ -83,11 +83,15 @@ export namespace XTime {
         if (yearMatch) fmt = fmt.replace(yearMatch[0], (date.getFullYear() + "").slice(-yearMatch[0].length))
 
         for (const key in map) {
-            let reg = new RegExp(`(${key}+)`)
-            if (reg.test(fmt)) {
-                const value = map[key]
-                const replacement = (key.length === 1) ? value.toString() : value.toString().padStart(key.length, '0')
-                fmt = fmt.replace(reg, replacement)
+            const reg = new RegExp(`(${key}+)`)
+            const match = fmt.match(reg)
+            if (match) {
+                const str = match[0]
+                let value = map[key]
+                if (str.length > 1) {
+                    value = value.toString().padStart(str.length, '0')
+                }
+                fmt = fmt.replace(reg, value.toString())
             }
         }
 
